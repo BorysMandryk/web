@@ -1,0 +1,278 @@
+$blue: #85B4D8;
+$hover-blue: #78ABD3;
+$dark-blue: #6591b3;
+$dark-grey: #707070;
+$grey: #F0F0F0;
+$light-grey: #F8F8F8;
+$arial: arial;
+
+@mixin image-wrap($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin button($width, $height, $bg-color: $blue, $border: none, $text-align: center, $text-color: white, $font-size, $hover-color: $hover-blue, $active-color: $dark-blue) {
+    width: $width;
+    height: $height;
+    background-color: $bg-color;
+    border: $border;
+    text-align: $text-align;
+    color: $text-color;
+    font-size: $font-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $hover-color;
+    }
+
+    &:active {
+        background-color: $active-color;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $arial;
+    color: $dark-grey;
+}
+
+a {
+    color: $dark-grey;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        padding: 0px 20px;
+        font-size: 44px;
+        font-weight: normal;
+    }
+}
+
+.topnav {
+    a {
+        &.link {
+            display: block;
+            font-size: 24px;
+            padding: 0 22px;
+        }
+
+        button {
+            @include button($width: 100px, $height: 40px, $font-size: 24px);
+            margin: auto 20px;
+        }
+    }
+}
+
+footer {
+    position: relative;
+    height: 70px;
+    width: 100%;
+    p {
+        padding-left: 30px;
+    }
+}
+
+h2 {
+    font-size: 34px;
+    font-weight: normal;
+}
+
+.wrapper {
+    padding: 30px 30px;
+    min-height: calc(100vh - 67px - 67px);
+}
+
+.medication-list-container {
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .medication-item {
+        width: 175px;
+        height: 275px;
+        gap: 0;
+        padding: 25px 25px;
+        z-index: 1;
+
+        .medication-item-name {
+            font-size: 20px;
+            height: 45px;
+            overflow: hidden;
+            overflow-wrap: break-word;
+            margin: 10px 0;
+        }
+
+        .image {
+            @include image-wrap($width: 175px, $height: 175px);
+        }
+    }   
+}
+
+
+.medication-item-trade {
+    display: flex;
+    justify-content: space-between;
+
+    .medication-item-buy-button {
+        @include button($width: 80px, $height: 35px, $font-size: 20px);
+        z-index: 2;
+    }
+
+    .medication-item-price {
+        float: right;
+        font-size: 18px;
+        color: $dark-grey;
+    }
+}
+
+.medication-image {
+    @include image-wrap($width: 400px, $height: 400px);
+}
+
+.medication-about {
+    display: flex;
+    padding: 50px 0;
+
+    .medication-about-left {
+        width: 40%;
+        padding-right: 30px;
+    }
+    
+    .medication-about-right {
+        width: 60%;
+        padding-left: 30px;
+    }
+}
+
+.medication-trade {
+    display: flex;
+    margin: 30px 0;
+    justify-content: flex-end;
+
+    button {
+        @include button($width: 100px, $height: 50px, $font-size: 24px);
+    }
+
+    .medication-trade-price {
+        padding-right: 40px;
+        font-size: 24px;
+    }
+}
+
+.description {
+    font-size: 20px;
+}
+
+.responsive-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.return {
+    padding: 30px;
+    button {
+        @include button($bg-color: white, $hover-color: $light-grey,$active-color: $grey, $width: 47px, $height: 38px, $font-size: 0);
+    }
+}
+
+.sign-in-form {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    label{
+        font-size: 22px;
+    }
+
+    label, input {
+        margin: 15px 0;
+    }
+
+    a {
+        width: inherit;
+        button {
+            @include button($width: inherit, $height: 40px, $font-size: 24px)
+        }
+    }
+}
+
+.sign-up-form {
+    @extend .sign-in-form;
+    height: 600px;
+}
+
+.helper-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    label, a{
+        font-size: 16px;
+    }
+}
+
+.bottom-links {
+    p {
+        text-align: center;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    border: none;
+    width: inherit;
+    height: 30px;
+    font-size: 24px;
+    border-bottom: 3px solid $blue;
+
+    &::placeholder {
+        color: $blue;
+        opacity: 0.6;
+    }
+}
+
+.border-bottom-blue {
+    border-bottom: 3px solid $blue;
+}
+
+.border-top-blue {
+    border-top: 3px solid $blue;
+}
+
+.bg-color-grey {
+    background-color: $grey;
+}
+
+.text-color-blue {
+    color: $blue;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.vertical-align-center {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: arial;
+  color: #707070;
+}
+
+a {
+  color: #707070;
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  padding: 0px 20px;
+  font-size: 44px;
+  font-weight: normal;
+}
+
+.topnav a.link {
+  display: block;
+  font-size: 24px;
+  padding: 0 22px;
+}
+.topnav a button {
+  width: 100px;
+  height: 40px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+  margin: auto 20px;
+}
+.topnav a button:hover {
+  background-color: #78ABD3;
+}
+.topnav a button:active {
+  background-color: #6591b3;
+}
+
+footer {
+  position: relative;
+  height: 70px;
+  width: 100%;
+}
+footer p {
+  padding-left: 30px;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.wrapper {
+  padding: 30px 30px;
+  min-height: calc(100vh - 67px - 67px);
+}
+
+.medication-list-container {
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.medication-list-container .medication-item {
+  width: 175px;
+  height: 275px;
+  gap: 0;
+  padding: 25px 25px;
+  z-index: 1;
+}
+.medication-list-container .medication-item .medication-item-name {
+  font-size: 20px;
+  height: 45px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  margin: 10px 0;
+}
+.medication-list-container .medication-item .image {
+  width: 175px;
+  height: 175px;
+}
+
+.medication-item-trade {
+  display: flex;
+  justify-content: space-between;
+}
+.medication-item-trade .medication-item-buy-button {
+  width: 80px;
+  height: 35px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.medication-item-trade .medication-item-buy-button:hover {
+  background-color: #78ABD3;
+}
+.medication-item-trade .medication-item-buy-button:active {
+  background-color: #6591b3;
+}
+.medication-item-trade .medication-item-price {
+  float: right;
+  font-size: 18px;
+  color: #707070;
+}
+
+.medication-image {
+  width: 400px;
+  height: 400px;
+}
+
+.medication-about {
+  display: flex;
+  padding: 50px 0;
+}
+.medication-about .medication-about-left {
+  width: 40%;
+  padding-right: 30px;
+}
+.medication-about .medication-about-right {
+  width: 60%;
+  padding-left: 30px;
+}
+
+.medication-trade {
+  display: flex;
+  margin: 30px 0;
+  justify-content: flex-end;
+}
+.medication-trade button {
+  width: 100px;
+  height: 50px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+}
+.medication-trade button:hover {
+  background-color: #78ABD3;
+}
+.medication-trade button:active {
+  background-color: #6591b3;
+}
+.medication-trade .medication-trade-price {
+  padding-right: 40px;
+  font-size: 24px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+.responsive-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.return {
+  padding: 30px;
+}
+.return button {
+  width: 47px;
+  height: 38px;
+  background-color: white;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+}
+.return button:hover {
+  background-color: #F8F8F8;
+}
+.return button:active {
+  background-color: #F0F0F0;
+}
+
+.sign-in-form, .sign-up-form {
+  width: 300px;
+  height: 400px;
+  margin: auto;
+}
+.sign-in-form h2, .sign-up-form h2 {
+  margin-bottom: 20px;
+}
+.sign-in-form label, .sign-up-form label {
+  font-size: 22px;
+}
+.sign-in-form label, .sign-up-form label, .sign-in-form input, .sign-up-form input {
+  margin: 15px 0;
+}
+.sign-in-form a, .sign-up-form a {
+  width: inherit;
+}
+.sign-in-form a button, .sign-up-form a button {
+  width: inherit;
+  height: 40px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+}
+.sign-in-form a button:hover, .sign-up-form a button:hover {
+  background-color: #78ABD3;
+}
+.sign-in-form a button:active, .sign-up-form a button:active {
+  background-color: #6591b3;
+}
+
+.sign-up-form {
+  height: 600px;
+}
+
+.helper-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.helper-links label, .helper-links a {
+  font-size: 16px;
+}
+
+.bottom-links p {
+  text-align: center;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  border: none;
+  width: inherit;
+  height: 30px;
+  font-size: 24px;
+  border-bottom: 3px solid #85B4D8;
+}
+input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
+  color: #85B4D8;
+  opacity: 0.6;
+}
+
+.border-bottom-blue {
+  border-bottom: 3px solid #85B4D8;
+}
+
+.border-top-blue {
+  border-top: 3px solid #85B4D8;
+}
+
+.bg-color-grey {
+  background-color: #F0F0F0;
+}
+
+.text-color-blue {
+  color: #85B4D8;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.vertical-align-center {
+  display: flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */
