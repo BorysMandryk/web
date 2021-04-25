@@ -6,19 +6,11 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="bg-color-grey border-bottom-blue">
-            <h1>
-                <a href="index.html">online<span class="text-color-blue">Pharmacy</span></a>
-            </h1>
-            <nav class="topnav vertical-align-center">
-                <a class="link" href="index.html">Catalog</a>
-                <a class="link" href="sign-in.html">Sign In</a>
-                <a href="sign-up.html">
-                    <button>Sign Up</button>
-                </a>
-            </nav>
-        </header>
-
+        <script type = "text/javascript" src="script/inserter.js"></script>
+        <script>
+            insertHTML("header-unauthorized.html", document.body, "afterbegin");
+            insertHTML("footer.html", document.body, "beforeend");
+        </script>
         <main class="wrapper">
             <h2 class="text-color-blue">List of medications</h2>
             <div class="medication-list-container">
@@ -168,11 +160,6 @@
                     </div>
                 </div>
             </div>
-
-
         </main>
-        <footer class="border-top-blue bg-color-grey vertical-align-center">
-            <p>Online Pharmacy</p>
-        </footer>
     </body>
 </html>
