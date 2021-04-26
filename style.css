@@ -226,7 +226,7 @@ h2 {
 .sign-in-form label, .sign-up-form label {
   font-size: 22px;
 }
-.sign-in-form label, .sign-up-form label, .sign-in-form input, .sign-up-form input {
+.sign-in-form input, .sign-up-form input {
   margin: 15px 0;
 }
 .sign-in-form a, .sign-up-form a {
@@ -272,12 +272,53 @@ h2 {
   margin: 10px 0;
 }
 
+.profile-info {
+  padding: 30px 0;
+}
+.profile-info h3 {
+  font-size: 28px;
+}
+.profile-info p {
+  font-size: 24px;
+  margin: 10px 0 20px 0;
+}
+.profile-info .image {
+  width: 32px;
+  height: 32px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.profile-info button {
+  width: 100px;
+  height: 40px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.profile-info button:hover {
+  background-color: #78ABD3;
+}
+.profile-info button:active {
+  background-color: #6591b3;
+}
+.profile-info .editable {
+  display: flex;
+}
+
 input[type=text], input[type=password], input[type=email] {
   border: none;
+  border-bottom: 3px solid #85B4D8;
   width: inherit;
   height: 30px;
   font-size: 24px;
-  border-bottom: 3px solid #85B4D8;
 }
 input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
   color: #85B4D8;
@@ -298,6 +339,10 @@ input[type=text]::placeholder, input[type=password]::placeholder, input[type=ema
 
 .text-color-blue {
   color: #85B4D8;
+}
+
+.text-color-dark-grey {
+  color: #707070;
 }
 
 .text-align-center {

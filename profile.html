@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Profile</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script type = "text/javascript" src="script/inserter.js"></script>
+        <script>
+            insertHTML("header-authorized.html", document.body, "afterbegin");
+            insertHTML("footer.html", document.body, "beforeend");
+        </script>
+        <main class="wrapper">
+            <h2 class="text-color-blue">Profile</h2>
+            <div class="profile-info">
+                <div>
+                    <div class="editable">
+                        <h3 class="text-color-blue">Username</h3>
+                        <div class="image">
+                            <img src="img/edit_icon.png" alt="edit" class="responsive-image">
+                        </div>
+                    </div>
+                    <p class="text-color-dark-grey">username<p>
+
+<!--                    input type="text" id="username" name="username">-->
+                </div>
+
+                <div>
+                    <h3 class="text-color-blue">Email</h3>
+                    <p class="text-color-dark-grey">email@test.com<p>
+<!--                    input type="text" id="username" name="username">-->
+                </div>
+
+                <div>
+                    <div class="editable">
+                        <h3 class="text-color-blue">Phone</h3>
+                        <div class="image">
+                            <img src="img/edit_icon.png" alt="edit" class="responsive-image">
+                        </div>
+                    </div>
+                    <p class="text-color-dark-grey">0501234567<p>
+<!--                    input type="text" id="username" name="username">-->
+                </div>
+
+                <div>
+                    <div class="editable">
+                        <h3 class="text-color-blue">Address</h3>
+                        <div class="image">
+                            <img src="img/edit_icon.png" alt="edit" class="responsive-image">
+                        </div>
+                    </div>
+                    <p class="text-color-dark-grey">Україна, м. Львів, вул. Князя Романа, буд. 3<p>
+<!--                    input type="text" id="username" name="username">-->
+                </div>
+                <br>
+                <a href="#">
+                    <button>Log out</button>
+                </a>
+            </div>
+        </main>
+    </body>
+</html>
