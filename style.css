@@ -320,7 +320,7 @@ h2 {
 }
 
 .shopping-basket {
-  margin: 30px 0;
+  padding: 30px 0;
 }
 .shopping-basket .medication-order {
   min-height: 160px;
@@ -413,11 +413,15 @@ input[type=text], input[type=password], input[type=email] {
   border-bottom: 3px solid #85B4D8;
   width: inherit;
   height: 30px;
-  font-size: 24px;
+  font-size: 20px;
 }
 input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder {
   color: #85B4D8;
   opacity: 0.6;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  outline: none;
+  color: #707070;
 }
 
 .border-bottom-blue {
