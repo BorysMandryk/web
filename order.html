@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Order</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script type = "text/javascript" src="script/inserter.js"></script>
+        <script>
+            insertHTML("header-authorized.html", document.body, "afterbegin");
+            insertHTML("footer.html", document.body, "beforeend");
+        </script>
+        <main class="wrapper">
+            <h2 class="text-color-blue">Order</h2>
+            <div class="order">
+                <div class="order-info text-color-blue">
+                    <div class="full-name">
+                        <label>First name
+                           <br><input type="text" id="first_name" name="first_name">
+                        </label>
+                        <label>Last name
+                           <br><input type="text" id="last_name" name="last_name">
+                        </label>
+                        <label>Patronymic
+                           <br><input type="text" id="patronymic" name="patronymic">
+                        </label>
+                    </div>
+                    <div>
+                        <label>Phone
+                           <br><input type="tel" id="phone" name="phone">
+                        </label>
+                    </div>
+                    <div>
+                        <label>Address
+                           <br><input type="text" id="address" name="address">
+                        </label>
+                    </div>
+                </div>
+                <div class="place-order">
+                    <div class="total-price text-color-blue">
+                        Total price: <p class="text-color-dark-grey">3996.96 ₴</p>
+                    </div>
+                    <button>Place an order</button>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
