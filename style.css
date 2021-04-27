@@ -49,6 +49,7 @@ header h1 {
   justify-content: center;
   outline: 0;
   cursor: pointer;
+  overflow-wrap: break-word;
   margin: auto 20px;
 }
 .topnav a button:hover {
@@ -119,6 +120,7 @@ h2 {
   justify-content: center;
   outline: 0;
   cursor: pointer;
+  overflow-wrap: break-word;
   z-index: 2;
 }
 .medication-item-trade .medication-item-buy-button:hover {
@@ -169,6 +171,7 @@ h2 {
   justify-content: center;
   outline: 0;
   cursor: pointer;
+  overflow-wrap: break-word;
 }
 .medication-trade button:hover {
   background-color: #78ABD3;
@@ -207,6 +210,7 @@ h2 {
   justify-content: center;
   outline: 0;
   cursor: pointer;
+  overflow-wrap: break-word;
 }
 .return button:hover {
   background-color: #F8F8F8;
@@ -245,6 +249,7 @@ h2 {
   justify-content: center;
   outline: 0;
   cursor: pointer;
+  overflow-wrap: break-word;
 }
 .sign-in-form a button:hover, .sign-up-form a button:hover {
   background-color: #78ABD3;
@@ -301,6 +306,7 @@ h2 {
   justify-content: center;
   outline: 0;
   cursor: pointer;
+  overflow-wrap: break-word;
   margin-top: 20px;
 }
 .profile-info button:hover {
@@ -311,6 +317,95 @@ h2 {
 }
 .profile-info .editable {
   display: flex;
+}
+
+.shopping-basket {
+  margin: 30px 0;
+}
+.shopping-basket .medication-order {
+  min-height: 160px;
+  display: flex;
+  margin-bottom: 20px;
+}
+.shopping-basket .medication-order .medication-order-info {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  padding-right: 30px;
+}
+.shopping-basket .medication-order .medication-order-info .image {
+  flex: none;
+  margin: auto 15px;
+  width: 130px;
+  height: 130px;
+}
+.shopping-basket .medication-order .medication-order-info .medication-order-name {
+  overflow-wrap: break-word;
+  font-size: 26px;
+  padding: 15px;
+}
+.shopping-basket .medication-order .medication-order-trade {
+  margin: auto;
+}
+.shopping-basket .medication-order .medication-order-trade .medication-order-price {
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.shopping-basket .medication-order .medication-order-trade button {
+  width: 100px;
+  height: 40px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+  overflow-wrap: break-word;
+}
+.shopping-basket .medication-order .medication-order-trade button:hover {
+  background-color: #78ABD3;
+}
+.shopping-basket .medication-order .medication-order-trade button:active {
+  background-color: #6591b3;
+}
+
+.shopping-basket-order {
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.shopping-basket-order .total-price {
+  font-size: 24px;
+  margin-right: 30px;
+}
+.shopping-basket-order button {
+  width: 200px;
+  height: 40px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+  overflow-wrap: break-word;
+}
+.shopping-basket-order button:hover {
+  background-color: #78ABD3;
+}
+.shopping-basket-order button:active {
+  background-color: #6591b3;
 }
 
 input[type=text], input[type=password], input[type=email] {

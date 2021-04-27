@@ -24,6 +24,7 @@ $arial: arial;
     justify-content: center;
     outline: 0;
     cursor: pointer;
+    overflow-wrap: break-word;
 
     &:hover {
         background-color: $hover-color;
@@ -271,6 +272,67 @@ h2 {
         display: flex;
     }
 }
+
+.shopping-basket {
+    margin: 30px 0;
+    .medication-order {
+        min-height: 160px;
+        display: flex;
+        margin-bottom: 20px;
+
+        .medication-order-info {
+            display: flex;
+            flex-direction: row;
+            width: 90%;
+            padding-right: 30px;
+
+            .image {
+                flex:none;
+                margin: auto 15px;
+                @include image-wrap($width: 130px, $height: 130px)
+            }
+
+            .medication-order-name {
+                overflow-wrap: break-word;
+                font-size: 26px;
+                padding: 15px;
+            }
+        }
+
+        .medication-order-trade {
+            margin: auto;
+
+            .medication-order-price {
+                font-size: 24px;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+
+            button {
+                @include button($width: 100px, $height: 40px, $font-size: 24px);
+            }
+        }
+    }
+}
+
+.shopping-basket-order {
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    .total-price {
+        font-size: 24px;
+        margin-right: 30px;
+    }
+
+    button {
+        @include button($width: 200px, $height: 40px, $font-size: 24px);
+    }
+}
+
 
 input[type="text"], input[type="password"], input[type="email"] {
     border: none;
