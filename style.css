@@ -282,6 +282,7 @@ h2 {
 }
 .profile-info h3 {
   font-size: 28px;
+  font-weight: normal;
 }
 .profile-info p {
   font-size: 24px;
@@ -315,8 +316,10 @@ h2 {
 .profile-info button:active {
   background-color: #6591b3;
 }
-.profile-info .editable {
-  display: flex;
+
+#logout {
+  margin: 15px 0;
+  font-size: 20px;
 }
 
 .shopping-basket {
@@ -460,6 +463,8 @@ h2 {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
+  max-width: 70vw;
+  width: 100%;
   margin: -10px;
 }
 .full-name > * {
@@ -467,6 +472,7 @@ h2 {
 }
 
 #address {
+  max-width: 70vw;
   width: 100%;
 }
 
