@@ -390,13 +390,14 @@ h2 {
 input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
     border: none;
     border-bottom: 3px solid $blue;
+    min-width: 300px;
     width: inherit;
     height: 30px;
     font-size: 20px;
     color: $dark-grey;
 
     &::placeholder {
-        color: $blue;
+        color: $dark-grey;
         opacity: 0.6;
     }
 
