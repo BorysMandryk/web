@@ -4,6 +4,7 @@ $dark-blue: #6591b3;
 $dark-grey: #707070;
 $grey: #F0F0F0;
 $light-grey: #F8F8F8;
+$red: #DD1717;
 $arial: arial;
 
 @mixin image-wrap($width, $height) {
@@ -215,11 +216,8 @@ h2 {
         margin: 15px 0;
     }
 
-    a {
-        width: inherit;
-        button {
-            @include button($width: inherit, $height: 40px, $font-size: 24px)
-        }
+    button {
+        @include button($width: inherit, $height: 40px, $font-size: 24px)
     }
 }
 
@@ -415,6 +413,10 @@ input:-webkit-autofill {
     border-bottom: 3px solid $blue;
 }
 
+.border-bottom-red {
+    border-bottom: 3px solid $red !important;
+}
+
 .border-top-blue {
     border-top: 3px solid $blue;
 }
@@ -438,4 +440,9 @@ input:-webkit-autofill {
 .vertical-align-center {
     display: flex;
     align-items: center;
+}
+
+#error {
+    font-size: 16px;
+    color: $red;
 }

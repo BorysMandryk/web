@@ -233,10 +233,7 @@ h2 {
 .sign-in-form input, .sign-up-form input {
   margin: 15px 0;
 }
-.sign-in-form a, .sign-up-form a {
-  width: inherit;
-}
-.sign-in-form a button, .sign-up-form a button {
+.sign-in-form button, .sign-up-form button {
   width: inherit;
   height: 40px;
   background-color: #85B4D8;
@@ -251,10 +248,10 @@ h2 {
   cursor: pointer;
   overflow-wrap: break-word;
 }
-.sign-in-form a button:hover, .sign-up-form a button:hover {
+.sign-in-form button:hover, .sign-up-form button:hover {
   background-color: #78ABD3;
 }
-.sign-in-form a button:active, .sign-up-form a button:active {
+.sign-in-form button:active, .sign-up-form button:active {
   background-color: #6591b3;
 }
 
@@ -502,6 +499,10 @@ input:-webkit-autofill {
   border-bottom: 3px solid #85B4D8;
 }
 
+.border-bottom-red {
+  border-bottom: 3px solid #DD1717 !important;
+}
+
 .border-top-blue {
   border-top: 3px solid #85B4D8;
 }
@@ -525,6 +526,11 @@ input:-webkit-autofill {
 .vertical-align-center {
   display: flex;
   align-items: center;
+}
+
+#error {
+  font-size: 16px;
+  color: #DD1717;
 }
 
 /*# sourceMappingURL=style.css.map */
