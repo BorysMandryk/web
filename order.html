@@ -8,7 +8,10 @@
     <body>
         <script type = "text/javascript" src="script/inserter.js"></script>
         <script>
-            insertHTML("header-authorized.html", document.body, "afterbegin");
+            if(localStorage.credentials)
+                insertHTML("header-authorized.html", document.body, "afterbegin");
+            else
+                insertHTML("header-unauthorized.html", document.body, "afterbegin");
             insertHTML("footer.html", document.body, "beforeend");
         </script>
         <main class="wrapper">
