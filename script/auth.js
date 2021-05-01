@@ -7,10 +7,10 @@ export async function login(email, password){
     };
     const headers = new Headers({'Content-Type': 'application/json'});
 
-    const response = await fetch(url + "/login",
+    const response = await fetch(baseUrl + "/login",
       {method:'POST',
       body: JSON.stringify(credentials),
-      headers: headers,
+      headers: headers
     });
 
     const message = await response.text();
@@ -30,13 +30,13 @@ export async function createUser(email, password) {
         "email": email,
         "password": password
     }
-    const response = await fetch(url + "/users",
+    const response = await fetch(baseUrl + "/users",
       {method:'POST',
       body: JSON.stringify(data),
-      headers: headers,
+      headers: headers
     })
 
-    const message = await response.json();
+    const message = await response.text();
     if (response.ok)
     {
         localStorage.setItem("credentials", window.btoa(email + ":" + password));
