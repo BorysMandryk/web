@@ -9,7 +9,7 @@ export default class ShoppingBasketService
         const array = JSON.parse(localStorage.getItem("products"));
         if (array)
         {
-            if (!array.some(product => product.id == productData.med_id))
+            if (!array.some(product => product.med_id == id))
             {
                 array.push(productData);
                 localStorage.setItem("products", JSON.stringify(array))
