@@ -15,32 +15,41 @@
             insertHTML("footer.html", document.body, "beforeend");
         </script>
         <main class="wrapper">
-            <h2 class="text-color-blue">Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-                Sed convallis sed lacus et mat Lorem ipsum 
-                dolor sit amet consectetur adipiscing elit. Sed convallis sed</h2>
+            <h2 class="text-color-blue"></h2>
             <div class="medication-about">
                 <div class="medication-about-left medication-image">
                     <img src="img/medication.jpg" alt="Medication" class="responsive-image">
                 </div>
                 <div class="medication-about-right">
-                    <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, 
-                        vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, 
-                        auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis 
-                        sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus 
-                        congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc 
-                        venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer 
-                        fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
-                    </p>
+                    <p class="description"></p>
                     <div class="medication-trade">
-                        <div class="medication-trade-price vertical-align-center">999.99 ₴</div>
-                        <a href="#">
-                            <button>Buy</button>
-                        </a>
+                        <div class="medication-trade-price vertical-align-center"></div>
+                        <button id="buy-button">Buy</button>
                     </div>
                 </div>
             </div>
+            <script type="module">
+                import MedicationService from "./script/medication-service.js";
+                import ShoppingBasketService from "./script/shopping-basket-service.js";
+
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get("id");
+                const medicationData = await MedicationService.getById(id);
+                
+                const nameElement = document.getElementsByTagName("h2")[0];
+                const descriptionElement = document.getElementsByClassName("description")[0];
+                const costElement = document.getElementsByClassName("medication-trade-price")[0];
+                const buyButton = document.getElementById("buy-button");
+
+                nameElement.innerHTML = medicationData.name;
+                descriptionElement.innerHTML = medicationData.description;
+                costElement.innerHTML = `${medicationData.cost} ₴`;
+
+                buyButton.addEventListener("click", () => {
+                    ShoppingBasketService.addProduct(medicationData.id)
+                    .then(() => window.location.href = "shopping-basket.html");
+                });
+            </script>
         </main>
     </body>
 </html>
