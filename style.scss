@@ -308,6 +308,13 @@ h2 {
                 padding-bottom: 20px;
             }
 
+            input[type="number"] {
+                display: block;
+                font-size: 22px;
+                margin: 0 auto 20px auto;
+                width: 50px;
+            }
+
             button {
                 @include button($width: 100px, $height: 40px, $font-size: 24px);
                 margin: 0 auto;
@@ -385,7 +392,7 @@ h2 {
     width: 100%;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"] {
     border: none;
     border-bottom: 3px solid $blue;
     min-width: 300px;
@@ -403,6 +410,11 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
         outline: none;
         color: $dark-grey;
     }
+}
+
+input[type="number"] {
+    min-width: 30px;
+    max-width: 100px;
 }
 
 input:-webkit-autofill {

@@ -352,6 +352,12 @@ h2 {
   text-align: center;
   padding-bottom: 20px;
 }
+.shopping-basket .medication-order .medication-order-trade input[type=number] {
+  display: block;
+  font-size: 22px;
+  margin: 0 auto 20px auto;
+  width: 50px;
+}
 .shopping-basket .medication-order .medication-order-trade button {
   width: 100px;
   height: 40px;
@@ -473,7 +479,7 @@ h2 {
   width: 100%;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=tel] {
+input[type=text], input[type=password], input[type=email], input[type=tel], input[type=number] {
   border: none;
   border-bottom: 3px solid #85B4D8;
   min-width: 300px;
@@ -482,13 +488,18 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
   font-size: 20px;
   color: #707070;
 }
-input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder, input[type=tel]::placeholder {
+input[type=text]::placeholder, input[type=password]::placeholder, input[type=email]::placeholder, input[type=tel]::placeholder, input[type=number]::placeholder {
   color: #707070;
   opacity: 0.6;
 }
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=tel]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=number]:focus {
   outline: none;
   color: #707070;
+}
+
+input[type=number] {
+  min-width: 30px;
+  max-width: 100px;
 }
 
 input:-webkit-autofill {
