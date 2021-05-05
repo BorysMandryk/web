@@ -8,7 +8,10 @@
     <body>
         <script type = "text/javascript" src="script/inserter.js"></script>
         <script>
-            insertHTML("header-authorized.html", document.body, "afterbegin");
+            if(localStorage.credentials)
+                insertHTML("header-authorized.html", document.body, "afterbegin");
+            else
+                insertHTML("header-unauthorized.html", document.body, "afterbegin");
             insertHTML("footer.html", document.body, "beforeend");
         </script>
         <main class="wrapper">
@@ -32,7 +35,7 @@
                 </div>
                 <div>
                     <h3 class="text-color-blue">Email</h3>
-                    <p class="text-color-dark-grey">email@test.com<p>
+                    <p class="text-color-dark-grey" id="email">email@test.com<p>
                 </div>
                 <div class="editable">
                     <label>
@@ -47,9 +50,76 @@
                     </label>
                 </div>
                 <br>
-                <button>Save</button>
+                <div id="save">
+                    <button id="save-button">Save</button>
+                </div>
+
             </div>
-            <a href="index.html" class="text-color-blue" id="logout">Log out</a>
+            <a class="text-color-blue" id="logout">Log out</a>
+            <script type="module">
+                import UserService from "./script/user-service.js";
+                import ShoppingBasketService from "./script/shopping-basket-service.js";
+
+                const firstNameElement = document.getElementById("first_name");
+                const lastNameElement = document.getElementById("last_name");
+                const patronymicElement = document.getElementById("patronymic");
+                const emailElement = document.getElementById("email");
+                const phoneElement = document.getElementById("phone");
+                const addressElement = document.getElementById("address");
+
+                const saveButton = document.getElementById("save-button");
+                const logoutElement = document.getElementById("logout");
+
+                UserService.getCurrent().then(userData => {
+                    firstNameElement.value = userData.first_name;
+                    lastNameElement.value = userData.last_name;
+                    patronymicElement.value = userData.patronymic;
+                    emailElement.innerHTML = userData.email;
+                    phoneElement.value = userData.phone;
+                    addressElement.value = userData.address;
+                    console.log(userData);
+                });
+
+                saveButton.addEventListener("click", () => {
+                    const userData = {
+                        "first_name": firstNameElement.value,
+                        "last_name": lastNameElement.value,
+                        "patronymic": patronymicElement.value,
+                        "phone": phoneElement.value,
+                        "address": addressElement.value
+                    };
+
+                    UserService.editCurrent(userData).then(response => {
+                        let resultElement = document.createElement("span");
+                        resultElement.setAttribute("id", "save-result");
+                        let result = null;
+                        if (response.ok) {
+                            resultElement.className = "text-color-blue";
+                            result = "Saved";
+                        }
+                        else {
+                            resultElement.className = "text-color-blue";
+                            result = "Invalid data";
+                        }
+                        resultElement.innerHTML = result;
+                        const saveContainer = document.getElementById("save");
+                        saveContainer.appendChild(resultElement);
+                        setTimeout(() => {
+                            resultElement = document.getElementById("save-result");
+                            resultElement.remove();
+                        }, 5000);
+                    });
+                });
+
+                logoutElement.addEventListener("click", () =>{
+                    ShoppingBasketService.removeAll();
+                    localStorage.removeItem("totalPrice");
+                    localStorage.removeItem("credentials");
+                    window.location.href = "index.html";
+                });
+                
+                const placeOrderButton = document.getElementById("place-order-button");
+            </script>
         </main>
     </body>
 </html>

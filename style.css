@@ -291,7 +291,11 @@ h2 {
   margin-left: 30px;
   cursor: pointer;
 }
-.profile-info button {
+
+#save {
+  margin-top: 20px;
+}
+#save #save-button {
   width: 100px;
   height: 40px;
   background-color: #85B4D8;
@@ -305,18 +309,23 @@ h2 {
   outline: 0;
   cursor: pointer;
   overflow-wrap: break-word;
-  margin-top: 20px;
+  display: inline-block;
 }
-.profile-info button:hover {
+#save #save-button:hover {
   background-color: #78ABD3;
 }
-.profile-info button:active {
+#save #save-button:active {
   background-color: #6591b3;
+}
+#save #save-result {
+  padding-left: 30px;
+  font-size: 20px;
 }
 
 #logout {
   margin: 15px 0;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .shopping-basket {
@@ -528,6 +537,10 @@ input:-webkit-autofill {
 
 .text-color-dark-grey {
   color: #707070;
+}
+
+.text-color-red {
+  color: #DD1717;
 }
 
 .text-align-center {

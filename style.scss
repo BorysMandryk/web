@@ -261,16 +261,26 @@ h2 {
         margin-left: 30px;
         cursor: pointer;
     }
+}
 
-    button {
+#save {
+    margin-top: 20px;
+
+    #save-button {
         @include button($width: 100px, $height: 40px, $font-size: 24px);
-        margin-top: 20px;
+        display: inline-block;
+    }
+
+    #save-result {
+        padding-left: 30px;
+        font-size: 20px;
     }
 }
 
 #logout {
     margin: 15px 0;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .shopping-basket {
@@ -443,6 +453,10 @@ input:-webkit-autofill {
 
 .text-color-dark-grey {
     color: $dark-grey;
+}
+
+.text-color-red {
+    color: $red;
 }
 
 .text-align-center {
