@@ -42,11 +42,83 @@
                 </div>
                 <div class="place-order">
                     <div class="total-price text-color-blue">
-                        Total price: <p class="text-color-dark-grey">3996.96 ₴</p>
+                        Total price: <p class="text-color-dark-grey"></p>
                     </div>
-                    <button>Place an order</button>
+                    <button id="place-order-button">Place an order</button>
                 </div>
             </div>
+            <script type="module">
+                import UserService from "./script/user-service.js";
+                import OrderService from "./script/order-service.js";
+                import ShoppingBasketService from "./script/shopping-basket-service.js";
+
+                const firstNameElement = document.getElementById("first_name");
+                const lastNameElement = document.getElementById("last_name");
+                const patronymicElement = document.getElementById("patronymic");
+
+                const phoneElement = document.getElementById("phone");
+                const addressElement = document.getElementById("address");
+
+                const totalPriceElement = document.getElementsByClassName("total-price")[0].getElementsByTagName("p")[0];
+                const placeOrderButton = document.getElementById("place-order-button");
+
+                totalPriceElement.innerHTML = localStorage.getItem("totalPrice") + " ₴";
+
+                UserService.getCurrent().then(userData => {
+                    firstNameElement.value = userData.first_name;
+                    lastNameElement.value = userData.last_name;
+                    patronymicElement.value = userData.patronymic;
+                    phoneElement.value = userData.phone;
+                    addressElement.value = userData.address;
+                    console.log(userData);
+                });
+
+                placeOrderButton.addEventListener("click", () => {
+                    const firstName = firstNameElement.value;
+                    const lastName = lastNameElement.value;
+                    const patronymic = patronymicElement.value;
+                    const phone = phoneElement.value;
+                    const address = addressElement.value;
+
+                    if (firstName && lastName && patronymic && phone && address) {
+                        const userData = {
+                        "first_name": firstName,
+                        "last_name": lastName,
+                        "patronymic": patronymic,
+                        "phone": phone,
+                        "address": address
+                        };
+                        (async () => {
+                            const userServiceResponse = await UserService.editCurrent(userData);
+                            if (!userServiceResponse.ok) {
+                                const message = await userServiceResponse.text();
+                                console.log(`Error ${userServiceResponse.status}: ${message}`);
+                            }
+                            else {
+                                const products = {"products": JSON.parse(localStorage.getItem("products"))};
+                                const orderServiceResponse = await OrderService.placeAnOrder(products);
+                                if (!orderServiceResponse.ok) {
+                                    const message = await orderServiceResponse.text();
+                                    console.log(`Error ${orderServiceResponse.status}: ${message}`);
+                                }
+                                else {
+                                    ShoppingBasketService.removeAll();
+                                    localStorage.removeItem("totalPrice");
+                                    window.location.href = "index.html";
+                                }
+                            }
+                        })();
+                    }
+                    else {
+                        let errorMessage = "One of the fields is empty";
+                        const errorElement = document.createElement("p");
+                        errorElement.setAttribute("id", "error");
+                        errorElement.innerHTML = errorMessage;
+                        placeOrderButton.parentElement.appendChild(errorElement);
+                        console.log("empty");
+                    }
+                });
+            </script>
         </main>
     </body>
 </html>
