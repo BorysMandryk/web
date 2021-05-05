@@ -23,10 +23,18 @@ export default class ShoppingBasketService
 
     static removeProduct(id) {
         const productsArray = JSON.parse(localStorage.getItem("products"));
-        console.log(productsArray);
-        const removeIndex = productsArray.map(item => item.med_id).indexOf(id);
-        productsArray.splice(removeIndex, 1);
-        localStorage.setItem("products", JSON.stringify(productsArray));
+        if (productsArray.length > 1) {
+            const removeIndex = productsArray.map(item => item.med_id).indexOf(id);
+            productsArray.splice(removeIndex, 1);
+            localStorage.setItem("products", JSON.stringify(productsArray));
+        }
+        else {
+            localStorage.removeItem("products");
+        }
+    }
+
+    static removeAll() {
+        localStorage.removeItem("products");
     }
 
     static getAll() {
