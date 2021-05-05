@@ -46,8 +46,14 @@
                 costElement.innerHTML = `${medicationData.cost} ₴`;
 
                 buyButton.addEventListener("click", () => {
-                    ShoppingBasketService.addProduct(medicationData.id)
-                    .then(() => window.location.href = "shopping-basket.html");
+                    if (!localStorage.getItem("credentials"))
+                        window.location.href = "sign-in.html";
+                    else{
+                        ShoppingBasketService.addProduct(medicationData.id)
+                        .then(() => {
+                            window.location.href = "shopping-basket.html";
+                        });
+                    }
                 });
             </script>
         </main>

@@ -20,12 +20,13 @@
                 <script type="module">
                     import MedicationService from "./script/medication-service.js";
                     import ShoppingBasketService from "./script/shopping-basket-service.js";
-                    console.log("sc1");
+
                     const medicationListContainer = document.getElementsByClassName("medication-list-container")[0];
 
                     MedicationService.getAll().then(medicationsArray => {
                         medicationsArray.forEach(medicationData => {
-                            console.log(medicationData);
+                            if (medicationData.quantity == 0)
+                                return;
                             const medicationBody = `
                             <div class="medication-item border-bottom-blue">
                                 <div class="medication-item-container">
@@ -46,8 +47,14 @@
                             medicationListContainer.insertAdjacentHTML("beforeend", medicationBody);
                             const buyButton = medicationListContainer.lastElementChild.getElementsByClassName("medication-item-buy-button")[0];
                             buyButton.addEventListener("click", () => {
-                                ShoppingBasketService.addProduct(medicationData.id)
-                                .then(() => window.location.href = "shopping-basket.html");
+                                if (!localStorage.getItem("credentials"))
+                                    window.location.href = "sign-in.html";
+                                else{
+                                    ShoppingBasketService.addProduct(medicationData.id)
+                                    .then(() => {
+                                        window.location.href = "shopping-basket.html";
+                                    });
+                                }
                             });
                         });
                     });
