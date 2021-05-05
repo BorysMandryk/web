@@ -2,9 +2,12 @@ import {baseUrl} from "./constants.js";
 
 export default class UserService {
     static getCurrent() {
-        return fetch(baseUrl + "/users/current")
+        const headers = new Headers({'Authorization': `Basic ${localStorage.credentials}`});
+        return fetch(baseUrl + "/users/current", {
+            credentials: "same-origin",
+            headers: headers
+        })
         .then(response => response.json())
-        .then(json => json.orders)
         .catch((err) => console.log(err));
     }
 
@@ -13,7 +16,7 @@ export default class UserService {
             'Authorization': `Basic ${localStorage.credentials}`,
             'Content-Type': 'application/json'
         });
-        return fetch(baseUrl + "/user/current",
+        return fetch(baseUrl + "/users/current",
             {method:'PUT',
             body: JSON.stringify(data),
             headers: headers
