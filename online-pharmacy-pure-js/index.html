@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pharmacy</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script type = "text/javascript" src="script/inserter.js"></script>
+        <script>
+            if(localStorage.credentials)
+                insertHTML("header-authorized.html", document.body, "afterbegin");
+            else
+                insertHTML("header-unauthorized.html", document.body, "afterbegin");
+            insertHTML("footer.html", document.body, "beforeend");
+        </script>
+        <main class="wrapper">
+            <h2 class="text-color-blue">List of medications</h2>
+            <div class="medication-list-container">
+                <script type="module">
+                    import MedicationService from "./script/medication-service.js";
+                    import ShoppingBasketService from "./script/shopping-basket-service.js";
+
+                    const medicationListContainer = document.getElementsByClassName("medication-list-container")[0];
+
+                    MedicationService.getAll().then(medicationsArray => {
+                        medicationsArray.forEach(medicationData => {
+                            if (medicationData.quantity == 0)
+                                return;
+                            const medicationBody = `
+                            <div class="medication-item border-bottom-blue">
+                                <div class="medication-item-container">
+                                    <a href="medication.html?id=${medicationData.id}">
+                                        <div class="image vertical-align-center">
+                                            <img src="img/medication.jpg" alt="Medication" class="responsive-image">
+                                        </div>
+                                    </a>
+                                    <div class="medication-item-name text-color-blue">
+                                        <a href="medication.html?id=${medicationData.id}">${medicationData.name}</a>
+                                    </div>
+                                    <div class="medication-item-trade">
+                                        <button class="medication-item-buy-button">Buy</button>
+                                        <div class="medication-item-price vertical-align-center">${medicationData.cost} ₴</div>
+                                    </div>
+                                </div>
+                            </div>`;
+                            medicationListContainer.insertAdjacentHTML("beforeend", medicationBody);
+                            const buyButton = medicationListContainer.lastElementChild.getElementsByClassName("medication-item-buy-button")[0];
+                            buyButton.addEventListener("click", () => {
+                                if (!localStorage.getItem("credentials"))
+                                    window.location.href = "sign-in.html";
+                                else{
+                                    ShoppingBasketService.addProduct(medicationData.id)
+                                    .then(() => {
+                                        window.location.href = "shopping-basket.html";
+                                    });
+                                }
+                            });
+                        });
+                    });
+                </script>
+            </div>
+        </main>
+    </body>
+</html>

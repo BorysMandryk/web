@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <main>
+        <div class="return">
+            <a href="index.html">
+                <button>
+                    <img src="img/arrow_back.png" alt="arrow_back">
+                </button>
+            </a>
+        </div>
+        <div class="sign-up-form">
+            <h2 class="text-color-blue text-align-center">Sign Up</h2>
+            <label class="text-color-blue">Email
+                <br> <input type="email" id="email" name="email" placeholder="email@test.com">
+             </label>
+            <label class="text-color-blue">Password
+                <br><input type="password" id="password" name="password" placeholder="********">
+            </label>
+            <label class="text-color-blue">Confirm password
+                <br><input type="password" id="conf-password" name="conf-password" placeholder="********">
+            </label>
+            <button id="sign-up-button">Sign Up</button>
+            <script type="module">
+                import {createUser} from "./script/auth.js"
+
+                async function getRegistrationData() {
+                    const email = document.getElementById("email").value;
+                    const password = document.getElementById("password").value;
+                    const conf_password_input = document.getElementById("conf-password");
+                    const conf_password = conf_password_input.value;
+                    if (password == conf_password)
+                    {
+                        conf_password_input.classList.remove("border-bottom-red");
+                        const response = await createUser(email, password);
+                        if (!response.ok)
+                        {
+                            const old_error = document.getElementById("error");
+                            console.log(old_error);
+                            if (old_error)
+                                old_error.remove();
+                            const error = document.createElement("p");
+                            error.innerHTML = (response.status == 400) ? "Invalid data" : "Email is already exists";
+                            error.id = "error";
+                            conf_password_input.parentElement.after(error);
+                        }
+                        else
+                        {
+                            window.location.href = "index.html";
+                        }
+                    }
+                    else
+                    {
+                        conf_password_input.className = "border-bottom-red";
+                        console.log("Passwords are different");
+                    }
+                }
+
+                document.getElementById("sign-up-button").addEventListener("click", () => getRegistrationData());
+            </script>
+            <div class="bottom-links">
+                <p>Already have an account? <a href="sign-in.html" class="text-color-blue">Sign In</a></p>
+            </div>
+        </div>
+    </main>
+</html>

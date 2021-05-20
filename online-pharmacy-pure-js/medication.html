@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Medication</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script type = "text/javascript" src="script/inserter.js"></script>
+        <script>
+            if(localStorage.credentials)
+                insertHTML("header-authorized.html", document.body, "afterbegin");
+            else
+                insertHTML("header-unauthorized.html", document.body, "afterbegin");
+            insertHTML("footer.html", document.body, "beforeend");
+        </script>
+        <main class="wrapper">
+            <h2 class="text-color-blue"></h2>
+            <div class="medication-about">
+                <div class="medication-about-left medication-image">
+                    <img src="img/medication.jpg" alt="Medication" class="responsive-image">
+                </div>
+                <div class="medication-about-right">
+                    <p class="description"></p>
+                    <div class="medication-trade">
+                        <div class="medication-trade-price vertical-align-center"></div>
+                        <button id="buy-button">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <script type="module">
+                import MedicationService from "./script/medication-service.js";
+                import ShoppingBasketService from "./script/shopping-basket-service.js";
+
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get("id");
+                const medicationData = await MedicationService.getById(id);
+                
+                const nameElement = document.getElementsByTagName("h2")[0];
+                const descriptionElement = document.getElementsByClassName("description")[0];
+                const costElement = document.getElementsByClassName("medication-trade-price")[0];
+                const buyButton = document.getElementById("buy-button");
+
+                nameElement.innerHTML = medicationData.name;
+                descriptionElement.innerHTML = medicationData.description;
+                costElement.innerHTML = `${medicationData.cost} ₴`;
+
+                buyButton.addEventListener("click", () => {
+                    if (!localStorage.getItem("credentials"))
+                        window.location.href = "sign-in.html";
+                    else{
+                        ShoppingBasketService.addProduct(medicationData.id)
+                        .then(() => {
+                            window.location.href = "shopping-basket.html";
+                        });
+                    }
+                });
+            </script>
+        </main>
+    </body>
+</html>
