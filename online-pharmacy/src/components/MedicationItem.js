@@ -1,21 +1,11 @@
 import React from 'react';
 import "../style.css";
 import medication from '../img/medication.jpg';
-import * as ShoppingBasketService from "../scripts/shopping-basket-service";
 import {Link} from 'react-router-dom';
 import BuyButton from './BuyButton';
 
 
 export default class MedicationItem extends React.Component {
-    buyProduct () {
-        if (!localStorage.getItem("credentials"))
-            this.props.history.push("/login");
-        else{
-            ShoppingBasketService.addProduct(this.props.medicationData.id);
-            this.props.history.push("/shopping-basket");
-        }
-    }
-
     render() {
         return (
             <div className="medication-item border-bottom-blue">
