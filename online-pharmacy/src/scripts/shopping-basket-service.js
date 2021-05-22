@@ -19,6 +19,13 @@ export function addProduct(id) {
     }
 }
 
+export function changeAmount(id, amount) {
+    const productsArray = JSON.parse(localStorage.getItem("products"));
+    const changeIndex = productsArray.findIndex(product => product.med_id === id);
+    productsArray[changeIndex].amount = amount;
+    localStorage.setItem("products", JSON.stringify(productsArray));
+}
+
 export function removeProduct(id) {
     const productsArray = JSON.parse(localStorage.getItem("products"));
     if (productsArray.length > 1) {
