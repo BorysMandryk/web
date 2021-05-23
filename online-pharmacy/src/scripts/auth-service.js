@@ -34,7 +34,6 @@ export async function createUser(email, password) {
       headers: headers
     })
 
-    const message = await response.text();
     if (response.ok)
     {
         localStorage.setItem("credentials", window.btoa(email + ":" + password));
