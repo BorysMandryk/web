@@ -20,8 +20,8 @@ export default class ShoppingBasket extends React.Component {
         if (!ShoppingBasketService.getAll()) {
             this.props.history.push("/");
         }
-
         else {
+            localStorage.setItem("totalPrice", this.state.totalPrice);
             this.props.history.push("/order");
         }
     }
