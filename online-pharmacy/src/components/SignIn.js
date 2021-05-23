@@ -51,9 +51,7 @@ export default class SignIn extends React.Component {
     render() {
         return (
             <main className="wrapper">
-                <div className="return">
-                    <BackButton handleClick={this.goBack}/>
-                </div>
+                <BackButton handleClick={this.goBack}/>
                 <form className="sign-in-form" onSubmit={this.signIn}>
                     <h2 className="text-color-blue text-align-center">Sign In</h2>
                     <EmailInput 

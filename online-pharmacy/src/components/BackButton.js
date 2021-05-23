@@ -6,9 +6,11 @@ import { withRouter } from 'react-router-dom';
 class BackButton extends React.Component {
     render () {
         return (
-            <button onClick={this.props.handleClick}>
-                <img src={arrow_back} alt="arrow_back" />
-            </button>
+            <div className="return">
+                <button onClick={this.props.handleClick}>
+                    <img src={arrow_back} alt="arrow_back" />
+                </button>
+            </div>
         );
     }
 }
