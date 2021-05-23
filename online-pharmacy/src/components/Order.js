@@ -33,7 +33,7 @@ class Order extends React.Component {
             address: userData.address
         })).catch (error => {
             console.log(error)
-            this.props.history.push("/login");
+            this.props.history.push("/sign-in");
         });
     }
 

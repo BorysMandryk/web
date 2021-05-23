@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 class BuyButton extends React.Component {
     handleClick () {
         if (!localStorage.getItem("credentials")) {
-            this.props.history.push("/login");
+            this.props.history.push("/sign-in");
         }
 
         else {
