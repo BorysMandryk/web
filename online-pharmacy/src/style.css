@@ -313,6 +313,29 @@ h2 {
   font-size: 20px;
 }
 
+#delete-button {
+  margin-bottom: 15px;
+  width: 80px;
+  height: 30px;
+  background-color: #85B4D8;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  cursor: pointer;
+  overflow-wrap: break-word;
+}
+#delete-button:hover {
+  background-color: #78ABD3;
+}
+#delete-button:active {
+  background-color: #6591b3;
+}
+
 #logout {
   margin: 15px 0;
   font-size: 20px;

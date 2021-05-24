@@ -267,6 +267,11 @@ h2 {
     }
 }
 
+#delete-button {
+    margin-bottom: 15px;
+    @include button($width: 80px, $height: 30px, $font-size: 20px);
+}
+
 #logout {
     margin: 15px 0;
     font-size: 20px;

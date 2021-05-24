@@ -23,6 +23,7 @@ export default class Profile extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.saveChanges = this.saveChanges.bind(this);
+        this.deleteUser = this.deleteUser.bind(this);
         this.logout = this.logout.bind(this);
     }
 
@@ -56,6 +57,17 @@ export default class Profile extends React.Component {
             setTimeout(() => {
                 this.setState({saveResult: ""});
             }, 5000);
+        });
+    }
+
+    deleteUser() {
+        UserService.deleteCurrent()
+        .then(() => {
+            ShoppingBasketService.removeAll();
+            localStorage.removeItem("totalPrice");
+            localStorage.removeItem("credentials");
+            this.props.history.push("/");
+            this.props.history.go(0);
         });
     }
 
@@ -99,6 +111,7 @@ export default class Profile extends React.Component {
                             {(this.state.saveResult) ? <SaveResult saveResult={this.state.saveResult}/> : null}
                         </div>
                     </form>
+                    <button id="delete-button" onClick={this.deleteUser}>Delete</button>
                     <a className="text-color-blue" id="logout" onClick={this.logout}>Log out</a>
                 </main>
             );
