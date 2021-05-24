@@ -245,21 +245,11 @@ h2 {
 
 .profile-info {
     padding: 30px 0;
-
-    h3 {
-        font-size: 28px;
-        font-weight: normal;
-    }
+    font-size: 28px;
 
     p {
         font-size: 24px;
         margin: 10px 0 20px 0;
-    }
-
-    .image {
-        @include image-wrap($width: 32px, $height: 32px);
-        margin-left: 30px;
-        cursor: pointer;
     }
 }
 
