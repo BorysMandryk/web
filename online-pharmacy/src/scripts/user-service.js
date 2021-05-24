@@ -21,3 +21,13 @@ export function editCurrent(data) {
         headers: headers
     });
 }
+
+export function deleteCurrent() {
+    const headers = new Headers({
+        'Authorization': `Basic ${localStorage.credentials}`
+    });
+    return fetch(configData.BaseUrl + "/users/current",
+        {method:'DELETE',
+        headers: headers
+    });
+}
