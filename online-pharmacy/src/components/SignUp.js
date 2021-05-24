@@ -51,7 +51,8 @@ export default class SignUp extends React.Component {
     }
 
     goBack() {
-        this.props.history.goBack();
+        this.props.history.push("/");
+        this.props.history.go(0);
     }
 
     render() {
